@@ -1,28 +1,64 @@
-# MarginMate
+# Margin Mate – Functional Specification
+# By: Kari Ganson
 
-Reseller's Dashboard
+# MarginMate is a full-stack MERN application I am building to help resellers keep track of their inventory, costs, and overall profit. The main goal of this app is to give users a simple and organized way to manage the items they buy and resell, while clearly seeing how much money they are actually making.
+ 
+# Core Features
+This application will allow users to:
 
-# MarginMate
+•	Add new inventory items with important details such as item name, category, purchase cost, listing price, sale price, fees, and shipping cost 
+•	View a full list of all inventory items in one place 
+•	Click on an item to see more detailed information 
+•	Update item details and change the status (for example: Listed or Sold) 
+•	Delete items from the inventory if needed 
+•	Automatically calculate profit based on the numbers entered 
+ 
+# Pages / Views
+The app will include the following pages:
 
-MarginMate is a reseller profit tracking application built with the MERN stack. The app helps users manage inventory, track item costs, list prices, sales prices, fees, and calculate profit margins. Users can add products, view product details, update sale information, and monitor overall reseller performance through a dashboard.
+1.	Dashboard
+This page will show a quick overview of the user’s activity, including things like total profit, number of items, and how many items have been sold. It will also include simple charts to help visualize this data. 
 
-The goal of MarginMate is to give small resellers a simple way to understand what they are spending, earning, and profiting from each item.
+2.	Inventory Page
+This page will display all items in a clean layout, making it easy to browse and select individual items. 
 
-# the 4 pages
+3.	Add Item Page
+This page will include a form where users can enter and save new inventory items.
 
-Dashboard/Main
-Inventory
-Add Item
-Item Details
-Settings/User Profile
+4.	Item Details Page
+This page will show all the information for a single item, along with options to edit or delete it.
 
-# Features
+5.	Settings Page
+This page will be used for basic user settings and preferences (placeholder for now). 
+ 
+# Technology Stack
+The technologies I plan to use for this project include:
 
-Add inventory items
-View all inventory
-View details for one item
-Edit/update item status
-Delete items
-Track cost, listing price, sale price, platform fees, shipping, and profit
-See dashboard cards/charts for total profit, total inventory value, and sold items
+•	React for the frontend 
+•	Node.js and Express for the backend 
+•	MongoDB for the database 
+•	Axios for handling API requests 
+•	React Router for navigation 
+•	Bootstrap for styling 
+•	Recharts for displaying data visually 
+ 
+# Data Structure 
+Each inventory item will store the following information:
 
+•	Item Name 
+•	Category 
+•	Purchase Cost 
+•	Listing Price 
+•	Sale Price 
+•	Platform Fees 
+•	Shipping Cost 
+•	Status 
+•	Notes 
+•	Image URL (optional) 
+ 
+# API Integration
+This application may include a third-party API to demonstrate external data fetching, but the main focus will be on storing and managing user data through MongoDB.
+ 
+
+# GitHub Repo
+https://github.com/GansonKari-FS/MarginMate.git
