@@ -8,7 +8,7 @@ function App() {
     axios
       .get("http://localhost:3000/api/v1/items")
       .then((res) => {
-        setItems(res.data.data);
+        setItems(res.data.data || []);
       })
       .catch((err) => {
         console.error("Error fetching items:", err);
@@ -16,15 +16,24 @@ function App() {
   }, []);
 
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4">MarginMate Inventory</h1>
+    <div style={{ padding: "30px", fontFamily: "Arial" }}>
+      <h1>MarginMate Inventory</h1>
+      <p>Your reseller profit tracker is live.</p>
 
       {items.length === 0 ? (
         <p>No items yet...</p>
       ) : (
         items.map((item) => (
-          <div key={item._id} className="card mb-3 p-3">
-            <h5>{item.itemName}</h5>
+          <div
+            key={item._id}
+            style={{
+              border: "1px solid #ccc",
+              padding: "15px",
+              marginBottom: "10px",
+              borderRadius: "8px",
+            }}
+          >
+            <h3>{item.itemName}</h3>
             <p>Category: {item.category}</p>
             <p>Profit: ${item.profit}</p>
           </div>
