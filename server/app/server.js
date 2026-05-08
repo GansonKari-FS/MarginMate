@@ -3,38 +3,53 @@ const cors = require("cors");
 
 const app = express();
 
-// middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// test route
+// In-memory data (temporary database)
+let items = [
+  {
+    _id: "1",
+    itemName: "Test Product",
+    category: "Electronics",
+    profit: 120,
+  },
+];
+
+// ✅ ROOT ROUTE (just to confirm server works)
 app.get("/", (req, res) => {
   res.json({
-    message: "MarginMate API is running 🚀",
+    message: "MarginMate API is running",
   });
 });
 
-// test items route
+// ✅ GET ALL ITEMS
 app.get("/api/v1/items", (req, res) => {
   res.json({
     success: true,
-    data: [
-      {
-        _id: "1",
-        itemName: "Test Product",
-        category: "Electronics",
-        profit: 120,
-      },
-      {
-        _id: "2",
-        itemName: "Sneaker Flip",
-        category: "Resale",
-        profit: 85,
-      },
-    ],
+    data: items,
   });
 });
 
+// ✅ CREATE ITEM
+app.post("/api/v1/items", (req, res) => {
+  const newItem = {
+    _id: Date.now().toString(),
+    itemName: req.body.itemName,
+    category: req.body.category,
+    profit: req.body.profit,
+  };
+
+  items.push(newItem);
+
+  res.status(201).json({
+    success: true,
+    data: newItem,
+  });
+});
+
+// PORT
 const PORT = 3000;
 
 app.listen(PORT, () => {
