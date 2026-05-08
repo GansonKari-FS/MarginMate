@@ -25,6 +25,12 @@ app.get("/api/v1/items", (req, res) => {
         category: "Electronics",
         profit: 120,
       },
+      {
+        _id: "2",
+        itemName: "Sneaker Flip",
+        category: "Resale",
+        profit: 85,
+      },
     ],
   });
 });
