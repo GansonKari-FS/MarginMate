@@ -17,14 +17,14 @@ let items = [
   },
 ];
 
-// ✅ ROOT ROUTE (just to confirm server works)
+//  ROOT ROUTE (just to confirm server works)
 app.get("/", (req, res) => {
   res.json({
     message: "MarginMate API is running",
   });
 });
 
-// ✅ GET ALL ITEMS
+// GET ALL ITEMS
 app.get("/api/v1/items", (req, res) => {
   res.json({
     success: true,
@@ -32,7 +32,7 @@ app.get("/api/v1/items", (req, res) => {
   });
 });
 
-// ✅ CREATE ITEM
+//  CREATE ITEM
 app.post("/api/v1/items", (req, res) => {
   const newItem = {
     _id: Date.now().toString(),
@@ -46,6 +46,19 @@ app.post("/api/v1/items", (req, res) => {
   res.status(201).json({
     success: true,
     data: newItem,
+  });
+});
+
+// Delete item
+// DELETE ITEM
+app.delete("/api/v1/items/:id", (req, res) => {
+  const { id } = req.params;
+
+  items = items.filter((item) => item._id !== id);
+
+  res.json({
+    success: true,
+    message: "Item deleted",
   });
 });
 
